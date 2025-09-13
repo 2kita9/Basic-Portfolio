@@ -209,6 +209,30 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Project 1 -->
+                 <div class="project-card bg-white rounded-xl overflow-hidden animate-on-scroll">
+                    <div class="h-48 overflow-hidden">
+                        <img src="./portfolio_img/skincare.png" 
+                             alt="Project 1" class="project-img w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Know-Your-Skin</h3>
+                        <p class="text-gray-600 mb-4">A Responsive web application for skincare beginner and skincare ingredients analysis with product recommendations</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-[#E5D9C8] text-[#8A7254] text-xs px-3 py-1 rounded-full">React.js</span>
+                            <span class="bg-[#E5D9C8] text-[#8A7254] text-xs px-3 py-1 rounded-full">TankStack Query</span>
+                            <span class="bg-[#E5D9C8] text-[#8A7254] text-xs px-3 py-1 rounded-full">Tailwind CSS</span>
+                            <span class="bg-[#E5D9C8] text-[#8A7254] text-xs px-3 py-1 rounded-full">Vite</span>
+                        </div>
+                        <a href="" class="text-[#A68A64] font-medium inline-flex items-center" target="_blank">
+                            View Project
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+
+
+
                 <div class="project-card bg-white rounded-xl overflow-hidden animate-on-scroll">
                     <div class="h-48 overflow-hidden">
                         <img src="./portfolio_img/fireimage.jpg" 
@@ -221,6 +245,7 @@
                             <span class="bg-[#E5D9C8] text-[#8A7254] text-xs px-3 py-1 rounded-full">Python</span>
                             <span class="bg-[#E5D9C8] text-[#8A7254] text-xs px-3 py-1 rounded-full">Pandas</span>
                             <span class="bg-[#E5D9C8] text-[#8A7254] text-xs px-3 py-1 rounded-full">Scikit-learn</span>
+                            <span class="bg-[#E5D9C8] text-[#8A7254] text-xs px-3 py-1 rounded-full">Logistic Regression</span>
                         </div>
                         <a href="https://forestfire-detector-exceed.streamlit.app/" class="text-[#A68A64] font-medium inline-flex items-center" target="_blank">
                             View Project
@@ -263,6 +288,8 @@
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="bg-[#E5D9C8] text-[#8A7254] text-xs px-3 py-1 rounded-full">HTML/CSS</span>
                             <span class="bg-[#E5D9C8] text-[#8A7254] text-xs px-3 py-1 rounded-full">JavaScript</span>
+                            <span class="bg-[#E5D9C8] text-[#8A7254] text-xs px-3 py-1 rounded-full">Web3Forms</span>
+                            <span class="bg-[#E5D9C8] text-[#8A7254] text-xs px-3 py-1 rounded-full">Firebase</span>
                             
                         </div>
                         <a href="#" class="text-[#A68A64] font-medium inline-flex items-center">
@@ -390,7 +417,7 @@
                 </div>
                 
                 <div class="md:w-1/2 animate-on-scroll">
-                    <form action="https://api.web3forms.com/submit" method="POST" id="contact-form" class="bg-[#F5F0E6] p-8 rounded-xl">
+                    <form  id="contact-form"  class="bg-[#F5F0E6] p-8 rounded-xl">
                         <input type="hidden" name="access_key" value="930bd91d-f060-4e70-82b0-cf4bc96d9e5d">
                         <div class="mb-6">
                             <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
@@ -423,6 +450,7 @@
                             Your message has been sent successfully!
                         </div>
                     </form>
+                    <p id="status"></p>
                 </div>
             </div>
         </div>
