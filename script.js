@@ -15,21 +15,82 @@ document.getElementById('mobile-menu-button').addEventListener('click', function
         });
 
         // Form submission
-        /*document.getElementById('contact-form').addEventListener('submit', function(e) {
+         
+        document.getElementById('contact-form').addEventListener('submit', async (e) => {
             e.preventDefault();
+
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const subject = document.getElementById("subject").value;
+            const message = document.getElementById("message").value;
+
+            try {
+                // 1️⃣ Send to Web3Forms manually
+                const web3Response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: { "Content-Type": "application/json", "Accept": "application/json" },
+                body: JSON.stringify({
+                    access_key: "930bd91d-f060-4e70-82b0-cf4bc96d9e5d", 
+                    name,
+                    email,
+                    subject,
+                    message
+                })
+                });
+
+                const web3Result = await web3Response.json();
+                if (!web3Result.success) {
+                console.error("❌ Web3Forms error:", web3Result.message);
+                alert("Failed to send email!");
+                return;
+                }
+
+                // 2️⃣ Post to Firebase Realtime Database
+                const res = await fetch(
+                "https://portfolio-api-4dcd7-default-rtdb.firebaseio.com/data.json",
+                {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                    name,
+                    email,
+                    subject,
+                    message,
+                    createdAt: new Date().toISOString()
+                    })
+                }
+                );
+
+                if (res.ok) {
+                document.getElementById("form-success").classList.remove("hidden");
+                document.getElementById("contact-form").reset();
+                } else {
+                alert("Failed to save data to Firebase");
+                }
+
+            } catch (err) {
+                console.error("Error occurred:", err);
+                alert("Something went wrong. Please try again.");
+            }
+
+
+
+
+
+            
             
             // Simulate form submission
             const successMessage = document.getElementById('form-success');
             successMessage.classList.remove('hidden');
             
             // Reset form
-            this.reset();
+            //this.reset();
             
             // Hide success message after 3 seconds
-            setTimeout(() => {
-                successMessage.classList.add('hidden');
-            }, 3000);
-        });*/
+            //setTimeout(() => {
+              //  successMessage.classList.add('hidden');
+            //}, 3000);
+        });
 
         // Scroll animation
         function checkScroll() {
@@ -44,6 +105,10 @@ document.getElementById('mobile-menu-button').addEventListener('click', function
                 }
             });
         }
+
+
+        
+            
 
         // Check on initial load
         document.addEventListener('DOMContentLoaded', checkScroll);
